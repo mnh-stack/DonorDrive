@@ -1,0 +1,348 @@
+/* Modal background */
+.hiw-modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(20, 30, 50, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hiwFadeIn 0.5s;
+  overflow-y: auto;
+}
+
+@keyframes hiwFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hiw-modal {
+  position: relative;
+  background: rgba(255,255,255,0.15);
+  border-radius: 32px;
+  box-shadow: 0 12px 48px 0 rgba(59, 130, 246, 0.25), 0 2px 8px rgba(139, 92, 246, 0.12);
+  padding: 3rem 2.5rem 2.5rem;
+  max-width: 480px;
+  width: 95vw;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  overflow: visible;
+  z-index: 2;
+  animation: hiwModalPop 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes hiwModalPop {
+  0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.hiw-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.hiw-close:hover {
+  color: #ec4899;
+}
+
+.hiw-logo-anim {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: hiwLogoFloat 3s ease-in-out infinite;
+}
+@keyframes hiwLogoFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.08); }
+}
+.hiw-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px #3b82f6cc, 0 0 0 8px #fff2;
+  background: linear-gradient(135deg, #3b82f6 60%, #8b5cf6 100%);
+  animation: hiwLogoSpin 8s linear infinite;
+}
+@keyframes hiwLogoSpin {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.hiw-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 2.2rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px #0008);
+  letter-spacing: 1px;
+}
+
+.hiw-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.hiw-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.18);
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #3b82f622;
+  padding: 1.1rem 1.2rem;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: hiwStepFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes hiwStepFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.hiw-step-num {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px #3b82f655;
+  margin-top: 0.2rem;
+  animation: hiwStepNumPop 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+@keyframes hiwStepNumPop {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2) drop-shadow(0 0 8px #8b5cf6cc); }
+}
+.hiw-step-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: #1e293b;
+  letter-spacing: 0.5px;
+}
+.hiw-step-content p {
+  font-size: 1rem;
+  color: #334155;
+  opacity: 0.92;
+  margin: 0;
+}
+
+/* Animated background */
+.hiw-bg-anim {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 30%, #3b82f633 0, transparent 60%),
+              radial-gradient(circle at 70% 70%, #ec489933 0, transparent 60%),
+              linear-gradient(120deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  opacity: 0.18;
+  animation: hiwBgMove 12s linear infinite alternate;
+}
+@keyframes hiwBgMove {
+  0% { background-position: 0% 0%, 100% 100%, 0% 0%; }
+  100% { background-position: 100% 100%, 0% 0%, 100% 100%; }
+}
+
+/* Subtitle and gradient text */
+.hiw-subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2.2rem;
+  color: #e0e7ff;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  animation: hiwFadeIn 1.2s 0.2s both;
+}
+.hiw-gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899, #10b981, #3b82f6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hiwGradientMove 4s linear infinite alternate;
+}
+@keyframes hiwGradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Logo glow and spin */
+.hiw-logo-glow {
+  filter: drop-shadow(0 0 32px #8b5cf6cc) drop-shadow(0 0 16px #3b82f6cc);
+}
+.hiw-logo-spin {
+  animation: hiwLogoSpin 2.5s linear infinite;
+}
+
+/* Animated border for modal */
+.hiw-animated-border {
+  position: relative;
+  z-index: 2;
+}
+.hiw-animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 36px;
+  padding: 2px;
+  background: linear-gradient(120deg, #3b82f6, #8b5cf6, #ec4899, #10b981, #3b82f6) border-box;
+  background-size: 400% 400%;
+  animation: hiwBorderAnim 8s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.7;
+}
+@keyframes hiwBorderAnim {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Fade and slide for steps */
+.hiw-fade-slide {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  animation: hiwStepFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* CTA Button */
+.hiw-cta-btn {
+  margin-top: 2.5rem;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  color: #fff;
+  border: none;
+  box-shadow: 0 8px 32px #3b82f655;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  animation: hiwFadeIn 1.2s 1.2s both;
+}
+.hiw-cta-btn:hover {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+  transform: scale(1.06) translateY(-2px);
+}
+
+/* Pulse for close button */
+.hiw-pulse {
+  animation: hiwPulse 1.2s infinite alternate;
+}
+@keyframes hiwPulse {
+  0% { filter: drop-shadow(0 0 0 #ec4899); }
+  100% { filter: drop-shadow(0 0 8px #ec4899); }
+}
+
+/* Confetti/particle canvas */
+.hiw-confetti {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background: transparent !important;
+}
+
+@media (max-width: 600px) {
+  .hiw-modal {
+    padding: 1.5rem 0.5rem 1.5rem;
+    max-width: 98vw;
+  }
+  .hiw-title {
+    font-size: 1.3rem;
+  }
+  .hiw-logo {
+    width: 60px;
+    height: 60px;
+  }
+  .hiw-step {
+    padding: 0.7rem 0.6rem;
+    gap: 0.7rem;
+  }
+  .hiw-step-num {
+    min-width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .hiw-step-content h3 {
+    font-size: 1rem;
+  }
+  .hiw-step-content p {
+    font-size: 0.92rem;
+  }
+}
+
+/* HowItWorks full page styles */
+.hiw-page-bg {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: rgba(20, 30, 50, 0.92);
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+}
+.hiw-page-content {
+  margin: 0 auto;
+  padding: 4rem 1rem 2rem;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hiw-back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.5rem 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 2px 8px #3b82f655;
+  transition: background 0.2s, color 0.2s;
+  z-index: 10;
+}
+.hiw-back-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .hiw-page-content {
+    padding: 2.5rem 0.2rem 1.5rem;
+    max-width: 99vw;
+  }
+  .hiw-back-btn {
+    top: 1rem;
+    left: 1rem;
+    font-size: 1rem;
+    padding: 0.4rem 1rem;
+  }
+} 
